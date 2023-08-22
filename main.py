@@ -170,7 +170,7 @@ def main():
                     if any(char.isupper() for char in name):
                         print('Use only lowercase letters !')
                         continue
-                
+                    
                     CLLD(name=name).login()
                     break
             else:
@@ -179,14 +179,10 @@ def main():
         elif opt == '3':
         
             if os.path.exists('data/active') and os.path.exists('data/active/acuser.json') and 'active' in acdata and acdata['active'] != None:
-                
-                while True:
-                    name = input('\nEnter your name : ')
-                    if any(char.isupper() for char in name):
-                        print('Use only lowercase letters !')
-                        continue
-                    CLLD(name=name).logout()
-                    break
+
+                name = acdata['active']
+                CLLD(name=name).logout()
+                   
             else:
                 print('\nYou are already logged out ')
                 sleep(1)
